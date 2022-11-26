@@ -27,9 +27,9 @@ func main() {
 	if err != nil {
 		fmt.Println("ERROR: ", err)
 	} else {
-		fmt.Printf("The area of temp square is %v\n", tempsq.Area())
+		fmt.Printf("The area of temp square is %+v\n", tempsq.Area())
 		tempsq.Move(92, 13)
-		fmt.Printf("The new positons are %v and %v\n%#v\n", tempsq.X, tempsq.Y, tempsq)
+		fmt.Printf("The new positons are %+v and %+v\n%#v\n", tempsq.X, tempsq.Y, tempsq)
 	}
 
 	c := &ch.Capper{Wrt: os.Stdout}
@@ -37,5 +37,10 @@ func main() {
 
 	fmt.Println(ch.Min([]float64{22, 333, 1}))
 	fmt.Println(ch.Min([]string{"a", "z", "C"}))
+
+	if err := ch.KillServer("server.pid"); err != nil {
+		fmt.Fprintf(os.Stderr, "ERROR: %s\n", err)
+		os.Exit(1)
+	}
 
 }
