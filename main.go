@@ -38,9 +38,16 @@ func main() {
 	fmt.Println(ch.Min([]float64{22, 333, 1}))
 	fmt.Println(ch.Min([]string{"a", "z", "C"}))
 
+	var urls = []string{
+		"https://golang.org",
+		"https://linkedin.com",
+		"https://api.github.com",
+	}
+	// ch.ExeAsyncSS(urls)
+	ch.ExeSyncSS(urls)
+
 	if err := ch.KillServer("server.pid"); err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR: %s\n", err)
 		os.Exit(1)
 	}
-
 }
